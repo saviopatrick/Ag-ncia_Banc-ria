@@ -123,6 +123,27 @@ public class AgenciaBancaria {
             System.out.println("Numero da conta do destinatario");
             int numContaDest = input.nextInt();
             Conta contaDestinatario = encontrarConta(numContaDest);
+
+            if (contaDestinatario != null){
+                System.out.println("valor da transferencia");
+                double valor = input.nextDouble();
+
+                contaRemetente.transferir(contaDestinatario,valor);
+            }
+
         }
+        operacoes();
     }
+    public static void listar(){
+        if (contasBancarias.size() > 0){
+            for (Conta conta: contasBancarias) {
+                System.out.println(conta);
+            }
+        }
+        else {
+            System.out.println("nao ha conta cadrastada");
+        }
+        operacoes();
+    }
+
 }
